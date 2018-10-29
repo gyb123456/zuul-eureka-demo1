@@ -1,7 +1,7 @@
 # zuul-eureka-demo
 zuul+eureka的demo，里面包含三个基本的service，实现了基本的转发url的功能
 
-用的时候吧service-demo对应的filter里的Component注解注释去掉即可，把其他的filter注释掉，不然相互影响的
+用的时候把service-demo对应的filter里的Component注解注释去掉即可，把其他的filter注释掉，不然相互影响的
 
 20181029
 
