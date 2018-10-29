@@ -1,0 +1,30 @@
+server:
+  port: 8080
+zuul:
+#  为全局指定放行Cookie和Headers信息，也可以在每个路由里设置
+  sensitiveHeaders: Cookie,Set-Cookie,Authorization
+
+#  ribbon配置
+#  ribbon:
+#    eager-load:
+#      enabled: true
+
+#      忽略转发的url
+#  ignored-patterns: /**/hello/**
+  routes:
+    my-test:
+      path: /test/*
+      url: http://localhost:8090
+#      stripPrefix: false
+#      利用eureka的注册发现
+    my-eureka:
+      path: /eureka/**
+      service-id: my-eureka
+      #设置转发时不忽略path的前缀.把path的所有内容当转发路由，很有用！！！
+      stripPrefix: false
+#  配置eureka的服务器的地址
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
+
